@@ -17,7 +17,7 @@ func LoadFromReader(r io.Reader) error {
 		if len(line) == 0 {
 			continue
 		}
-		values := strings.Split(line, "=")
+		values := strings.SplitN(line, "=", 2)
 		if len(values) != 2 {
 			return fmt.Errorf("Invalide line %d: %q", lineNumber, line)
 		}
